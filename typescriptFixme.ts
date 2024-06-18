@@ -44,8 +44,15 @@ interface Person {
   move: () => void;
 }
 
-var person1 = { name: "Bobby", move: function () {} };
-var person2 = { name: "Bobby", age: 42, move: function () { } };
+var person1: Person = {
+  name: "Bobby",
+  move: function () {}
+};
+var person2: Person = {
+  name: "Bobby",
+  age: 42, // The age property is provided
+  move: function () {}
+};
 
 
 // Annotate mySearch to describe a function that accepts two string parameters
@@ -54,8 +61,8 @@ var mySearch: (src: string, sub: string) => boolean = function (src, sub) {
 };
 //annotate the constructor arguments and properties
 class Point {
-  x: number = 0;
-  y: number = 0;
+  x: number;
+  y: number;
 
   constructor(x: number, y: number = 0) {
     this.x = x;
@@ -133,7 +140,7 @@ class Car {
 
 
 // annotate this array
-var arrayOfAnyType: any[] = [1, "string", false];
+let arrayOfAnyType: (number | string | boolean)[] = [1, "string", false];
 
 // fix the foo object so bar and baz can be added
 interface Foo {
